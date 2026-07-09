@@ -1,7 +1,13 @@
+# Ignore terraform providers and plugins
 .terraform/
+
+# Ignore state files
 *.tfstate
 *.tfstate.backup
-.terraform.lock.hcl
+
+# Ignore terraform plan
+terraform.tfplan
+
+# Ignore large binaries
 *.exe
 *.zip
-terraform.tfplan
