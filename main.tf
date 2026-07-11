@@ -15,19 +15,17 @@ locals {
   )
 }
 
-# ── VPC ──────────────────────────────────────────────────────────────
+# VPC Module
 module "vpc" {
-  source = "https://github.com/shubham-dake/terraform-module-vpc.git"
-
+  source = "git::https://github.com/shubham-dake/terraform-module-vpc.git"
   cidr_block = var.vpc_cidr
   vpc_name   = "${local.name_prefix}-vpc"
   tags       = local.common_tags
 }
 
-# ── Subnets (4 subnets via for_each) ─────────────────────────────────
+# Subnets Module
 module "subnets" {
-  source = "https://github.com/shubham-dake/terraform-module-subnet.git"
-
+  source = "git::https://github.com/shubham-dake/terraform-module-subnet.git"
   for_each          = var.subnets
   subnet_name       = "${local.name_prefix}-${each.key}"
   cidr_block        = each.value.cidr
@@ -37,10 +35,9 @@ module "subnets" {
   tags              = merge(local.common_tags, { SubnetType = each.value.is_public ? "public" : "private" })
 }
 
-# ── EC2 Instances (2 instances via for_each) ─────────────────────────
+# EC2 Module
 module "ec2_instances" {
-  source = "https://github.com/shubham-dake/terraform-module-ec2.git"
-
+  source = "git::https://github.com/shubham-dake/terraform-module-ec2.git"
   for_each      = var.ec2_instances
   instance_name = "${local.name_prefix}-${each.key}"
   ami_id        = each.value.ami_id
@@ -52,10 +49,9 @@ module "ec2_instances" {
   tags          = merge(local.common_tags, { Role = "web-server" })
 }
 
-# ── S3 Bucket ─────────────────────────────────────────────────────────
+# S3 Module
 module "s3_bucket" {
-  source = "https://github.com/shubham-dake/terraform-module-s3.git"
-
+  source = "git::https://github.com/shubham-dake/terraform-module-s3.git"
   bucket_name = "${local.name_prefix}-${var.bucket_suffix}"
   environment = var.environment
   tags        = merge(local.common_tags, { Purpose = "storage" })
