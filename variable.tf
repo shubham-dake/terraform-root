@@ -53,7 +53,7 @@ variable "ec2_instances" {
 }
 
 variable "tags" {
-  description = "Common tags applied to all resources via map meta-argument"
+  description = "Common tags applied to all resources via map meta-arguments"
   type        = map(string)
   default     = {}
 }
