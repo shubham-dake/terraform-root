@@ -8,7 +8,7 @@ terraform {
     }
   }
 
-   Uncomment for remote state (recommended for teams)
+  # Uncomment for remote state (recommended for teams)
    backend "s3" {
      bucket         = "my-terraform-state-bucket-batch-31"
      key            = "infra/terraform.tfstate"
