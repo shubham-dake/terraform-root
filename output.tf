@@ -23,7 +23,7 @@ output "ec2_public_ips" {
   value       = { for k, v in module.ec2_instances : k => v.public_ip }
 }
 
-output "s3_bucket_name" {
-  description = "S3 bucket name"
-  value       = module.s3_bucket.bucket_name
-}
+#output "s3_bucket_name" {
+ # description = "S3 bucket name"
+  #value       = module.s3_bucket.bucket_name
+#}
