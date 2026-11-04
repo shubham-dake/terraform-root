@@ -30,6 +30,18 @@ stages {
         }
     }
 
+
+    stage('Check Terraform Files') {
+    steps {
+        sh '''
+        pwd
+        ls -l *.tf
+        grep -n 'variable "tags"' variable.tf
+        terraform validate
+        '''
+    }
+}
+
     stage('Terraform Init') {
         steps {
             sh """
