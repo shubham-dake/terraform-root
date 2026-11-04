@@ -2,7 +2,7 @@ environment   = "dev"
 project_name  = "myapp"
 aws_region    = "ap-south-1"
 vpc_cidr      = "10.0.0.0/16"
-bucket_suffix = "assets-dev-20240102"
+#bucket_suffix = "assets-dev-20240102"
 
 tags = {
   Owner      = "dev-team"
