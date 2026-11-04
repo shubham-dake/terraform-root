@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "AWS region"
   type        = string
-  default     = "us-east-1"
+  default     = "ap-south-1"
 }
 
 variable "environment" {
@@ -46,10 +46,10 @@ variable "ec2_instances" {
   default = {}
 }
 
-variable "bucket_suffix" {
-  description = "Unique suffix for the S3 bucket name"
-  type        = string
-  default     = "assets-default"
+#variable "bucket_suffix" {
+ # description = "Unique suffix for the S3 bucket name"
+  #type        = string
+  #default     = "assets-default"
 }
 
 variable "tags" {
