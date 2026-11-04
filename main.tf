@@ -49,10 +49,10 @@ module "ec2_instances" {
   tags          = merge(local.common_tags, { Role = "web-server" })
 }
 
-# S3 Module
-#module "s3_bucket" {
- # source = "git::https://github.com/shubham-dake/terraform-module-s3.git"
-  #bucket_name = "${local.name_prefix}-${var.bucket_suffix}"
-  #environment = var.environment
-  #tags        = merge(local.common_tags, { Purpose = "storage" })
-}#
+# S3 Module (currently disabled)
+# module "s3_bucket" {
+#   source      = "git::https://github.com/shubham-dake/terraform-module-s3.git"
+#   bucket_name = "${local.name_prefix}-${var.bucket_suffix}"
+#   environment = var.environment
+#   tags        = merge(local.common_tags, { Purpose = "storage" })
+# }
