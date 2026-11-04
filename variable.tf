@@ -46,11 +46,12 @@ variable "ec2_instances" {
   default = {}
 }
 
-#variable "bucket_suffix" {
- # description = "Unique suffix for the S3 bucket name"
-  #type        = string
-  #default     = "assets-default"
-}
+# S3 bucket variable (currently disabled)
+# variable "bucket_suffix" {
+#   description = "Unique suffix for the S3 bucket name"
+#   type        = string
+#   default     = "assets-default"
+# }
 
 variable "tags" {
   description = "Common tags applied to all resources via map meta-arguments"
